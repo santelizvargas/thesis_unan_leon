@@ -22,12 +22,13 @@ class ArduinoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    
     {
         return response()->json([
             'arduinos' => $this->repository->get()
         ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
