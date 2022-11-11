@@ -2,7 +2,6 @@
 
 use App\Models\Arduino;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArduinoController;
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -18,5 +17,3 @@ Route::get('/', function () {
         "arduinos" => $arduinos
     ]);
 });
-
-Route::get('/', [ArduinoController::class, 'index'])->name('arduinos.index');
