@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Arduino;
 use App\Http\Requests\ArduinoRequest;
 use App\Http\Repositories\ArduinoRepository;
@@ -23,11 +22,11 @@ class ArduinoController extends Controller
      */
     public function index()
     {
-        return response()->json([
+        return view('arduinos.index', [
             'arduinos' => $this->repository->get()
         ]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,24 +34,18 @@ class ArduinoController extends Controller
      */
     public function create()
     {
-        
+        return view('arduinos.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  ArduinoRequest  $request
+     * @param  \Illuminate\Http\ArduinoRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(ArduinoRequest $request)
     {
-        $temperature = $request->safe()->only(['temperature']);
-
-        $this->repository->create($temperature);
-
-        return response()->json([
-            'arduinos' => $this->repository->get()
-        ]);
+        
     }
 
     /**
@@ -63,7 +56,7 @@ class ArduinoController extends Controller
      */
     public function show(Arduino $arduino)
     {
-        
+        //
     }
 
     /**
@@ -84,15 +77,9 @@ class ArduinoController extends Controller
      * @param  \App\Models\Arduino  $arduino
      * @return \Illuminate\Http\Response
      */
-    public function update(ArduinoRequest $request, Arduino $arduino)
+    public function update(Request $request, Arduino $arduino)
     {
-        $validated = $request->safe()->only(['temperature']);
-
-        $arduino->updateOrCreate($validated);
-
-        return response()->json([
-            'arduinos' => $this->repository->get()
-        ]);
+        //
     }
 
     /**
@@ -103,10 +90,6 @@ class ArduinoController extends Controller
      */
     public function destroy(Arduino $arduino)
     {
-        $arduino->destroy();
-
-        return response()->json([
-            'arduinos' => $this->repository->get()
-        ]);
+        //
     }
 }

@@ -24,7 +24,7 @@ class ArduinoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'temperature' => 'required'
         ];
     }
 }
