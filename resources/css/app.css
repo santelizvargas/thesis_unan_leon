@@ -1,4 +1,5 @@
 @import "pages/dashboard.css";
+@import "components/navbar.css";
 
 * {
     margin: 0;

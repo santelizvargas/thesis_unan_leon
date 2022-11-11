@@ -9,6 +9,9 @@
     @vite('resources/css/app.css')
 </head>
 <body>
+
+    <x-navbar/>
+    
     <main class="container">
         {{ $slot }}
     </main>
