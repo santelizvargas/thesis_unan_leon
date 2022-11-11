@@ -2,7 +2,7 @@
 
 interface Repository
 {
-    function get();
+    function get():array;
 
-    function create();
+    function create():array;
 }
