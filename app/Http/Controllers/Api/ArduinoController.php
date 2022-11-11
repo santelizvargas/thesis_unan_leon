@@ -9,9 +9,9 @@ use App\Http\Repositories\ArduinoRepository;
 
 class ArduinoController extends Controller
 {
-    public function __construct(
-        ArduinoRepository $repository = null
-    )
+    private ArduinoRepository $repository;
+
+    public function __construct(ArduinoRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -22,7 +22,6 @@ class ArduinoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    
     {
         return response()->json([
             'arduinos' => $this->repository->get()
@@ -36,7 +35,7 @@ class ArduinoController extends Controller
      */
     public function create()
     {
-         
+        
     }
 
     /**
@@ -47,7 +46,7 @@ class ArduinoController extends Controller
      */
     public function store(ArduinoRequest $request)
     {
-        $temperature = $request->only('temperature');
+        $temperature = $request->safe()->only(['temperature']);
 
         $this->repository->create($temperature);
 
@@ -64,7 +63,7 @@ class ArduinoController extends Controller
      */
     public function show(Arduino $arduino)
     {
-        //
+        
     }
 
     /**
@@ -85,9 +84,15 @@ class ArduinoController extends Controller
      * @param  \App\Models\Arduino  $arduino
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Arduino $arduino)
+    public function update(ArduinoRequest $request, Arduino $arduino)
     {
-        //
+        $validated = $request->safe()->only(['temperature']);
+
+        $arduino->updateOrCreate($validated);
+
+        return response()->json([
+            'arduinos' => $this->repository->get()
+        ]);
     }
 
     /**
@@ -98,6 +103,10 @@ class ArduinoController extends Controller
      */
     public function destroy(Arduino $arduino)
     {
-        //
+        $arduino->destroy();
+
+        return response()->json([
+            'arduinos' => $this->repository->get()
+        ]);
     }
 }

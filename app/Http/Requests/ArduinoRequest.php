@@ -25,6 +25,7 @@ class ArduinoRequest extends FormRequest
     {
         return [
             //
+            'temperature' => 'required'
         ];
     }
 }
