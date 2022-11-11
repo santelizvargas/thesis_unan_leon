@@ -1,5 +1,16 @@
+@import "pages/dashboard.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --shadow: 0 0 8px 0 #0005;
+}
+
 .container {
-    background-color: rgb(255, 0, 0);
-    height: 3000px;
-    width: 300px;
+    width: 90%;
+    margin: auto;
 }

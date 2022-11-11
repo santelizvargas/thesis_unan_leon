@@ -1,0 +1,23 @@
+.content {
+    width: 100%;
+    max-width: 100%;
+    padding-top: .1px;
+    box-shadow: var(--shadow);
+}
+
+.charts__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 100%;
+    margin: 30px 0;
+}
+
+.chart__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 2rem;
+    color: #3c3c3c;
+}
