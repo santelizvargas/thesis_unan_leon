@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('arduinos', function (Blueprint $table) {
             $table->id();
-            $table->string('temperature')->default('10.0');
+            $table->string('temperature')->default('0.0');
             $table->timestamps();
         });
     }
