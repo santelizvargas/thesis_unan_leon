@@ -5,7 +5,7 @@
                 <li class="nav__item"><a href="/">Inicio</a></li>
                 <li class="nav__item"><a href="about">Sobre Nosotros</a></li>
                 <li class="nav__item"><a href="data.html">Datos</a></li>
-                <li class="nav__item"><a href="contact">Contacto</a></li>
+                <li class="nav__item"><a href="{{route('contact')}}">Contacto</a></li>
                 <li class="nav__item"><a href="login">Login</a></li>
             </ul>
         </nav>
