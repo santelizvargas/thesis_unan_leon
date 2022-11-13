@@ -1,5 +1,5 @@
-<x-layout.layout>
-        <section class="content">
+<x-dashboard.layout>
+        <!--<section class="content">
             <p class="chart__title">Temperatura Promedio</p>
             <article id="temperature"></article>
         </section>
@@ -19,5 +19,5 @@
             <p class="chart__title">Semana 03</p>
             <section id="thirdWeek"></section>
         </article>
-    </section>
-    </x-layout.layout>
+    </section>-->
+    </x-dashboard.layout>
