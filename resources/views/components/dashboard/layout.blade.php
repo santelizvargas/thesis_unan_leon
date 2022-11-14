@@ -14,12 +14,10 @@
 <body>
 
     <x-dashboard.navbar />
-    <main class="dashboard">
-        <x-dashboard.sidebar />
+    <x-dashboard.sidebar />
 
-        <section class="container">
-            {{ $slot }}
-        </section>
+    <main class="container">
+        {{ $slot }}
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

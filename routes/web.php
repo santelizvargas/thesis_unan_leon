@@ -7,13 +7,13 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/settings', function () {
+    return view('settings');
+})->name('settings');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/users', function () {
+    return view('users');
+})->name('users');
 
 Route::get('/', function () {
     $arduinos = Arduino::all();
