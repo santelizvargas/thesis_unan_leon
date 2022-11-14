@@ -1,6 +1,6 @@
 // Average Temperature
 
-const temperatureData = {
+const recordData = {
     series: [{
         name: 'Mes Anterior',
         data: [8, 12, 45, 32, 18, 20, 45]
@@ -12,7 +12,7 @@ const temperatureData = {
         height: 350,
         type: 'area'
     },
-    colors: ['#D4AF2E', '#D47E2E'],
+    colors: ['#4380b1', '#d82909'],
     dataLabels: {
         enabled: false
     },
@@ -30,7 +30,91 @@ const temperatureData = {
     },
 };
 
-const temperatureChart = new ApexCharts(document.querySelector("#temperature"), temperatureData);
+const recordChart = new ApexCharts(document.querySelector("#records"), recordData);
+recordChart.render();
+
+// temperature
+
+const temperatureData = {
+    series: [75],
+    chart: {
+        height: 350,
+        type: 'radialBar',
+        toolbar: {
+            show: true
+        }
+    },
+    plotOptions: {
+        radialBar: {
+            startAngle: -135,
+            endAngle: 225,
+            hollow: {
+                margin: 0,
+                size: '70%',
+                background: 'var(--sidebar-color)',
+                image: undefined,
+                imageOffsetX: 0,
+                imageOffsetY: 0,
+                position: 'front',
+                dropShadow: {
+                    enabled: true,
+                    top: 3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.24
+                }
+            },
+            track: {
+                background: '#fff',
+                strokeWidth: '67%',
+                margin: 0, // margin is in pixels
+                dropShadow: {
+                    enabled: true,
+                    top: -3,
+                    left: 0,
+                    blur: 4,
+                    opacity: 0.35
+                }
+            },
+
+            dataLabels: {
+                show: true,
+                name: {
+                    offsetY: -10,
+                    show: true,
+                    color: 'var(--title-color',
+                    fontSize: '20px'
+                },
+                value: {
+                    formatter: function (val) {
+                        return parseInt(val);
+                    },
+                    color: 'var(--text-color)',
+                    fontSize: '36px',
+                    show: true,
+                }
+            }
+        }
+    },
+    fill: {
+        type: 'gradient',
+        gradient: {
+            shade: 'dark',
+            type: 'horizontal',
+            shadeIntensity: 0.8,
+            gradientToColors: ['#d82909'],
+            opacityFrom: 1,
+            opacityTo: 1,
+            stops: [0, 100]
+        }
+    },
+    stroke: {
+        lineCap: 'round'
+    },
+    labels: ['Grados'],
+};
+
+var temperatureChart = new ApexCharts(document.querySelector("#temperature"), temperatureData);
 temperatureChart.render();
 
 // First Week
@@ -107,3 +191,21 @@ const thirdWeekData = {
 
 const thirdWeekChart = new ApexCharts(document.querySelector("#thirdWeek"), thirdWeekData);
 thirdWeekChart.render();
+
+
+const progressBar = document.querySelector('.progress__bar'),
+    valueProgress = document.querySelector('.progress__value')
+
+let progressStartValue = 0,
+    progressEndValue = 90,
+    speed = 25
+
+let progress = setInterval(() => {
+    progressStartValue++
+
+    valueProgress.textContent = `${progressStartValue}`
+    progressBar.style.background = `conic-gradient(var(--primary-color) ${progressStartValue * 3.6}deg, var(--primary-color-light) 0deg)`
+    if(progressStartValue == progressEndValue) {
+        clearInterval(progress);
+    }
+}, speed)

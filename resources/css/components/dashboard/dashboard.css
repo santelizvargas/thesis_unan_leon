@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 @import "navbar.css";
 @import "charts.css";
@@ -8,21 +8,53 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
-    --shadow: 0 0 8px 0 #0005;
-    --icon-selected: #4380b1;
-}
-
-h1, h2, a, input {
     font-family: "Poppins", sans-serif;
 }
 
+:root {
+    --body-color: #F2F2F2;
+    --sidebar-color: #FFF;
+    --primary-color: #4380b1;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+    --title-color: #303030;
+    --shadow: 0 0 8px 0 #0002;
+    --border-light: 1px solid #d3d3d3;
+
+
+    --tran-02: all .2s ease;
+    --tran-03: all .3s ease;
+    --tran-04: all .4s ease;
+    --tran-05: all .5s ease;
+}
+
+body.dark {
+    --body-color: #18191A;
+    --sidebar-color: #242526;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #FFF;
+    --text-color: #CCC;
+    --title-color: #DDD
+}
+
+body {
+    background-color: var(--body-color);
+    transition: var(--tran-04);
+    overflow: hidden;
+}
+
 .container {
-    max-height: calc(100vh - 100px);    
+    max-height: calc(100vh - 70px);    
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 80px;
+    left: 70px;
     right: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
 }

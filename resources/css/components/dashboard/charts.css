@@ -1,8 +1,105 @@
-.content {
+/* <======>Title<======> */
+
+.dashboard__title {
+    color: var(--title-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* <======>Cards<======> */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--sidebar-color);
+    padding: 10px;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--primary-color);
+    border-radius: 5px;  
+    box-shadow: var(--shadow);
+}
+
+.card__title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.statistics {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.turtles {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--title-color);
+}
+
+.turtles i {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00c040;
+}
+
+.progress__bar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary-color) 180deg, var(--primary-color-light) 0deg);
+    display: grid;
+    place-content: center;
+    position: relative;
+}
+
+.progress__bar::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--sidebar-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress__value {
+    font-size: .9rem;
+    color: var(--title-color);
+    position: relative;
+    z-index: 50;
+}
+
+/* <======>Charts<======> */
+
+.temperature__charts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.chart__area {
+    grid-column: 1/4;
+}
+
+.chart__radial {
+    grid-column: 4/5;
+}
+
+.chart {
     width: 100%;
     max-width: 100%;
-    padding-top: .1px;
+    background-color: var(--sidebar-color);
+    border-radius: 2px;
     box-shadow: var(--shadow);
+    color: var(--text-color);
 }
 
 .charts__container {
@@ -15,9 +112,9 @@
 }
 
 .chart__title {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
-    text-align: center;
-    margin: 2rem;
-    color: #3c3c3c;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    color: var(--title-color);
+    border-bottom: var(--border-light);
 }

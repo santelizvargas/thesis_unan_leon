@@ -1,62 +1,159 @@
-.main {
-    width: 200px;
+/* <======>Sidebar<=======> */
+
+.sidebar {
+    width: 70px;
     height: calc(100vh - 70px);
-    background-color: #fff;
-    border-right: 1px solid #d3d3d3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 30px;
-    padding: 30px 20px;
+    background-color: var(--sidebar-color);
+    padding: 10px 22px;
+    border-right: var(--border-light);
+    overflow: hidden;
+    transition: var(--tran-05);
     position: relative;
-    left: -140px;
-    transition: left .5s ease;
     z-index: 100;
 }
 
-.logo {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.sidebar.close {
+    width: 250px;
 }
 
-.section__links {
+.sidebar__logo {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    align-items: center;
 }
 
-.sidebar__icon {
-    font-size: 20px;
-    color: var(--icon-selected);
+.toggle {
+    font-size: 23px;
+    color: var(--primary-color);
     cursor: pointer;
 }
 
+.logo {
+    margin-left: 20px;
+    opacity: 0;
+    transition: var(--tran-04);
+}
+
+.sidebar.close .logo {
+    opacity: 1;
+}
+
+/* <======>Links<=======> */
+
+.links__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* <======>Links<=======> */
+
+.sidebar__links, .sidebar__footer {
+    display: grid;
+    gap: 30px; 
+    margin-top: 30px;
+}
+
+.link__item {
+    list-style: none;
+}
+
 .sidebar__icons {
+    min-width: 40px;
     font-size: 20px;
-    color: #7f7f7f;
+    display: inline-block;
 }
 
-.main a {
+.sidebar__icons, a, .link__text {
+    color: var(--text-color);
     text-decoration: none;
-    color: #141414d8;
-    font-size: 14px;
-    font-weight: bold;
+    white-space: nowrap;
 }
 
-#check {
-    display: none;
+.link__text {
+    opacity: 0;
+    transition: var(--tran-04);
 }
 
-#check:checked ~ .main {
-    left: 0;
-    transition: left.5s ease;
+.sidebar.close .link__text {
+    opacity: 1;
 }
 
-#check:checked ~ .main .sidebar__icons{
-    font-size: 20px;
-    margin-right: 10px;
+/* <======>Logout and mode<=======> */
+
+.sidebar__footer {
+    margin-bottom: 40px;
 }
 
-#check:checked ~ .main a {
+.mode {
+    display: flex;
+    /* background-color: var(--primary-color-light); */
+}
+
+.sun__moon {
+    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.sun__moon i {
+    position: absolute;
+    opacity: 1;
+}
+
+.sun__moon i.bi-sun {
+    opacity: 0;
+}
+
+.mode__text {
+    line-height: 50px;
+    margin-left: 4px;
+    opacity: 0;
+    color: var(--text-color);
+    white-space: nowrap;
+    transition: var(--tran-04);
+}
+
+.sidebar.close .mode__text {
+    opacity: 1;
+}
+
+.sidebar.close .sun__moon {
+    opacity: 1;
+}
+
+.switch__toggle {
+    margin-left: -10px;
+    /* min-width: 60px; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.switch {
+    width: 44px;
+    height: 22px;
+    background-color: var(--toggle-color);
+    border-radius: 25px;
+    position: relative;
+}
+
+.switch::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-05);
+}
+
+body.dark .switch::before {
+    left: 24px;
 }
