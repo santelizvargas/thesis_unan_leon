@@ -1,37 +1,52 @@
+
 // Average Temperature
 
-const recordData = {
-    series: [{
-        name: 'Mes Anterior',
-        data: [8, 12, 45, 32, 18, 20, 45]
-    }, {
-        name: 'Mes Actual',
-        data: [11, 32, 26, 17, 34, 50, 37]
-    }],
-    chart: {
-        height: 350,
-        type: 'area'
-    },
-    colors: ['#4380b1', '#d82909'],
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        curve: 'smooth'
-    },
-    xaxis: {
-        type: 'datetime',
-        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-    },
-    tooltip: {
-        x: {
-            format: 'dd/MM/yy HH:mm'
-        },
-    },
-};
+async function getArduinos() {
+    const response = await fetch('http://127.0.0.1:8000/api/v1/arduinos')
+    const data = await response.json()
+    return data
+}
 
-const recordChart = new ApexCharts(document.querySelector("#records"), recordData);
-recordChart.render();
+const generateGraphics = () => {
+    getArduinos()
+        .then(({ arduinos }) => {
+            const options = {
+                series: [{
+                    name: 'Last Month - Static Data',
+                    data: [100, 100, 100, 100]
+                }, {
+                    name: 'This Month - Data from Dsta Base',
+                    data: arduinos.map(( { temperature }) => temperature)
+                }],
+                chart: {
+                    height: 350,
+                    type: 'area'
+                },
+                colors: ['#4380b1', '#d82909'],
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                xaxis: {
+                    type: 'datetime',
+                    //TODO: The date is the same on all registers on database so still doesn't can generate the time line 
+                    // categories: arduinos.map(({ created_at, updated_at }) => created_at, updated_at)
+                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z"]
+                },
+                tooltip: {
+                    x: {
+                        format: 'dd/MM/yy HH:mm'
+                    }
+                }
+            }
+            const _ = new ApexCharts(document.querySelector("#records"), options).render()
+        })
+        .catch(console.log)
+}
+
+generateGraphics()
 
 // temperature
 
@@ -80,7 +95,7 @@ const temperatureData = {
             dataLabels: {
                 show: true,
                 name: {
-                    offsetY: -10,
+                    offsetY: -100,
                     show: true,
                     color: 'var(--title-color',
                     fontSize: '20px'

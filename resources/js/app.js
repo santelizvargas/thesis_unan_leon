@@ -1,3 +1,3 @@
-import './bootstrap';
-import './helpers/dashboard';
-import './helpers/sidebar';
+import './bootstrap'
+import './helpers/dashboard'
+import './helpers/sidebar'
