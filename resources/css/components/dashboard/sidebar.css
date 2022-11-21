@@ -4,7 +4,7 @@
     width: 70px;
     height: calc(100vh - 70px);
     background-color: var(--sidebar-color);
-    padding: 10px 22px;
+    padding: 10px 10px;
     border-right: var(--border-light);
     overflow: hidden;
     transition: var(--tran-05);
@@ -25,6 +25,10 @@
     font-size: 23px;
     color: var(--primary-color);
     cursor: pointer;
+    padding: 0 12px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
 }
 
 .logo {
@@ -49,13 +53,19 @@
 /* <======>Links<=======> */
 
 .sidebar__links, .sidebar__footer {
-    display: grid;
-    gap: 30px; 
     margin-top: 30px;
 }
 
 .link__item {
     list-style: none;
+    height: 50px;
+    padding: 0 12px;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.link__item:hover, .toggle:hover {
+    background-color: var(--primary-color-light);
 }
 
 .sidebar__icons {

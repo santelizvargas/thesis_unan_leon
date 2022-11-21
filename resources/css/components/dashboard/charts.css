@@ -52,7 +52,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: conic-gradient(var(--primary-color) 180deg, var(--primary-color-light) 0deg);
+    background: conic-gradient(var(--primary-color-light) 180deg, var(--primary-color-light) 0deg);
     display: grid;
     place-content: center;
     position: relative;

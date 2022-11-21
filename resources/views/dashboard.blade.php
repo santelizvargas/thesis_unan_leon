@@ -7,10 +7,10 @@
             <div class="statistics">
                 <span class="turtles">
                 <i class="bi bi-shield-fill-plus"></i>
-                    230
+                    74,4k
                 </span>
                 <div class="progress__bar">
-                    <span class="progress__value">70</span>
+                    <span class="progress__value">130</span>
                 </div>
             </div>
         </article>
@@ -19,10 +19,10 @@
             <div class="statistics">
                 <span class="turtles">
                 <i class="bi bi-shield-fill-plus"></i>
-                    160
+                    357
                 </span>
                 <div class="progress__bar">
-                    <span class="progress__value">70</span>
+                    <span class="progress__value">65</span>
                 </div>
             </div>
         </article>
@@ -31,10 +31,10 @@
             <div class="statistics">
                 <span class="turtles">
                 <i class="bi bi-shield-fill-plus"></i>
-                    52
+                    0
                 </span>
                 <div class="progress__bar">
-                    <span class="progress__value">70</span>
+                    <span class="progress__value">0</span>
                 </div>
             </div>
         </article>
@@ -43,10 +43,10 @@
             <div class="statistics">
                 <span class="turtles">
                 <i class="bi bi-shield-fill-plus"></i>
-                    97
+                    350
                 </span>
                 <div class="progress__bar">
-                    <span class="progress__value">70</span>
+                    <span class="progress__value">56</span>
                 </div>
             </div>
         </article>
@@ -65,7 +65,7 @@
         </article>
     </div>
 
-    <section class="charts__container">
+    <!--<section class="charts__container">
         <article class="chart">
             <p class="chart__title">Semana 01</p>
             <section id="firstWeek"></section>
@@ -80,6 +80,6 @@
             <p class="chart__title">Semana 03</p>
             <section id="thirdWeek"></section>
         </article>
-    </section>
+    </section>-->
 
 </x-dashboard.layout>
