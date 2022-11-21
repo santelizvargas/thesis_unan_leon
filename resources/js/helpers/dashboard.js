@@ -13,7 +13,7 @@ const generateGraphics = () => {
             const options = {
                 series: [{
                     name: 'Last Month - Static Data',
-                    data: [100, 100, 100, 100]
+                    data: [10, 35, 22, 28]
                 }, {
                     name: 'This Month - Data from Dsta Base',
                     data: arduinos.map(( { temperature }) => temperature)
@@ -51,7 +51,7 @@ generateGraphics()
 // temperature
 
 const temperatureData = {
-    series: [75],
+    series: [30],
     chart: {
         height: 350,
         type: 'radialBar',
@@ -61,8 +61,8 @@ const temperatureData = {
     },
     plotOptions: {
         radialBar: {
-            startAngle: -135,
-            endAngle: 225,
+            startAngle: -105,
+            endAngle: 255,
             hollow: {
                 margin: 0,
                 size: '70%',
@@ -95,7 +95,7 @@ const temperatureData = {
             dataLabels: {
                 show: true,
                 name: {
-                    offsetY: -100,
+                    offsetY: 70,
                     show: true,
                     color: 'var(--title-color',
                     fontSize: '20px'
@@ -120,7 +120,7 @@ const temperatureData = {
             gradientToColors: ['#d82909'],
             opacityFrom: 1,
             opacityTo: 1,
-            stops: [0, 100]
+            stops: [0]
         }
     },
     stroke: {
@@ -208,19 +208,19 @@ const thirdWeekChart = new ApexCharts(document.querySelector("#thirdWeek"), thir
 thirdWeekChart.render();
 
 
-const progressBar = document.querySelector('.progress__bar'),
-    valueProgress = document.querySelector('.progress__value')
+// const progressBar = document.querySelector('.progress__bar'),
+//     valueProgress = document.querySelector('.progress__value')
 
-let progressStartValue = 0,
-    progressEndValue = 90,
-    speed = 25
+// let progressStartValue = 0,
+//     progressEndValue = 90,
+//     speed = 25
 
-let progress = setInterval(() => {
-    progressStartValue++
+// let progress = setInterval(() => {
+//     progressStartValue++
 
-    valueProgress.textContent = `${progressStartValue}`
-    progressBar.style.background = `conic-gradient(var(--primary-color) ${progressStartValue * 3.6}deg, var(--primary-color-light) 0deg)`
-    if(progressStartValue == progressEndValue) {
-        clearInterval(progress);
-    }
-}, speed)
+//     valueProgress.textContent = `${progressStartValue}`
+//     progressBar.style.background = `conic-gradient(var(--primary-color) ${progressStartValue * 3.6}deg, var(--primary-color-light) 0deg)`
+//     if(progressStartValue == progressEndValue) {
+//         clearInterval(progress);
+//     }
+// }, speed)
