@@ -4,21 +4,21 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Sensors;
 
-class DatabaseSeeder extends Seeder
+class SensorSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-            ArduinoSeeder::class,
-            SensorSeeder::class
+        //
+        Sensors::create([
+            'temperature' => '30',
+            'humidity' => '50'
         ]);
     }
 }
