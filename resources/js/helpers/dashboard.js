@@ -1,10 +1,14 @@
 
 // Average Temperature
-
 async function getArduinos() {
     const response = await fetch('http://127.0.0.1:8000/api/v1/arduinos')
     const data = await response.json()
     return data
+}
+
+// Temperture and humidity on real time
+function getSensor() {
+    return fetch('http://127.0.0.1:8000/api/v1/sensors').then((res) => res.json())
 }
 
 const generateGraphics = () => {
@@ -16,7 +20,7 @@ const generateGraphics = () => {
                     data: [10, 35, 22, 28]
                 }, {
                     name: 'This Month - Data from Dsta Base',
-                    data: arduinos.map(( { temperature }) => temperature)
+                    data: arduinos.map(( { temperature } ) => temperature)
                 }],
                 chart: {
                     height: 350,
@@ -51,7 +55,7 @@ generateGraphics()
 // temperature
 
 const temperatureData = {
-    series: [30],
+    series: [100, 100],
     chart: {
         height: 350,
         type: 'radialBar',
@@ -126,11 +130,25 @@ const temperatureData = {
     stroke: {
         lineCap: 'round'
     },
-    labels: ['Grados'],
+    labels: ['Grados', 'Humedad'],
 };
 
 var temperatureChart = new ApexCharts(document.querySelector("#temperature"), temperatureData);
 temperatureChart.render();
+
+// Real time actualization of temperature chart
+setInterval(() => {
+    getSensor()
+        .then(({ sensors }) => {
+            temperatureChart.updateSeries([
+                sensors.map(({ temperature }) => temperature),
+                sensors.map(({ humidity }) => humidity)
+            ])
+
+        })
+        .catch(console.log)
+}, 1000)
+
 
 // First Week
 
@@ -207,20 +225,3 @@ const thirdWeekData = {
 const thirdWeekChart = new ApexCharts(document.querySelector("#thirdWeek"), thirdWeekData);
 thirdWeekChart.render();
 
-
-// const progressBar = document.querySelector('.progress__bar'),
-//     valueProgress = document.querySelector('.progress__value')
-
-// let progressStartValue = 0,
-//     progressEndValue = 90,
-//     speed = 25
-
-// let progress = setInterval(() => {
-//     progressStartValue++
-
-//     valueProgress.textContent = `${progressStartValue}`
-//     progressBar.style.background = `conic-gradient(var(--primary-color) ${progressStartValue * 3.6}deg, var(--primary-color-light) 0deg)`
-//     if(progressStartValue == progressEndValue) {
-//         clearInterval(progress);
-//     }
-// }, speed)

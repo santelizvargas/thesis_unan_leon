@@ -20,5 +20,15 @@ class SensorSeeder extends Seeder
             'temperature' => '30',
             'humidity' => '50'
         ]);
+
+        Sensors::create([
+            'temperature' => '30',
+            'humidity' => '50'
+        ]);
+        
+        Sensors::create([
+            'temperature' => '30',
+            'humidity' => '50'
+        ]);
     }
 }
